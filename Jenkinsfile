@@ -32,13 +32,13 @@ pipeline {
                     if(artifactExists) {
                         echo "*** File: ${artifactPath}, group: ${pom.groupId}, packaging: ${pom.packaging}, version ${pom.version}";
                         nexusArtifactUploader(
-                            nexusVersion: "nexus3",
+                            nexusVersion: "nexus2",
                             protocol: "http",
-                            nexusUrl: "localhost:8081",
+                            nexusUrl: "localhost:8081/repository/actividad6Maven/",
                             groupId: pom.groupId,
                             version: pom.version,
-                            repository: "Repositorio1",
-                            credentialsId: "NexusCredentials",
+                            repository: "http://localhost:8081/repository/actividad6group/",
+                            credentialsId: "nexusCredential",
                             artifacts: [
                                 [artifactId: pom.artifactId,
                                         classifier: '',
