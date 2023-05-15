@@ -63,7 +63,16 @@ pipeline {
       )
       }
       failure{
-	    slackSend( channel: "#fundamentos-de-devops", token: "slack_webhook token", color: "good", message: "${custom_msg()}")
+	    slackSend( channel: "#fundamentos-de-devops", token: "ZPY4JL5GoNwggJhsmszYKDXN", color: "good", message: "${custom_msg()}")
 	  }
    } 
 }
+
+def custom_msg()
+	        {
+	        def JENKINS_URL= "localhost:8080"
+	        def JOB_NAME = env.JOB_NAME
+	        def BUILD_ID= env.BUILD_ID
+	        def JENKINS_LOG= " FAILED: Job [${env.JOB_NAME}] Logs path: ${JENKINS_URL}/job/${JOB_NAME}/${BUILD_ID}/consoleText"
+	        return JENKINS_LOG
+	    }
