@@ -62,7 +62,7 @@ pipeline {
         testResults: '*/test-reports/.xml'
       )
       }
-      failure{
+      success{
 	    slackSend( channel: "#fundamentos-de-devops", token: "ZPY4JL5GoNwggJhsmszYKDXN", color: "good", message: "${custom_msg()}")
 	  }
    } 
